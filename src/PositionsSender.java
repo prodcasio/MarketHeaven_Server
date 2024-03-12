@@ -81,9 +81,7 @@ public class PositionsSender extends Thread {
 
                 // Calcola il guadagno per la posizione e aggiungilo all'oggetto JSON
                 double pnl = calculatePnL(operation, openPrice, closePrice, lots);
-                System.out.println(pnl);
                 String formattedPnl = String.valueOf(Math.floor(pnl * 100) / 100);
-                System.out.println(formattedPnl);
                 position.put("pnl", formattedPnl);
             }
         }
