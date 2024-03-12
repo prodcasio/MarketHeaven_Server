@@ -1,26 +1,36 @@
-import org.json.JSONArray;
-
-import java.io.File;
 import java.io.IOException;
-import java.net.*;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 
 public class PositionReceiver extends Thread{
     PositionReceiver(){}
 
     @Override
-    public void run(){
+    public void run() {
         try {
-            JSONArray positions = XMLtoJSONArray.convert(new File("positions.xml")); // Carica gli asset da un file XML
-            DatagramSocket socket = new DatagramSocket(6677); // Crea un socket Datagram in ascolto sulla porta specificata
-            byte[] receiveData = new byte[1024];
-            DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-            socket.receive(receivePacket); // Riceve il pacchetto dal client
+            // Crea un DatagramSocket sulla porta 6677
+            DatagramSocket socket = new DatagramSocket(6677);
 
+            byte[] buffer = new byte[1024];
 
+            System.out.println("PositionReceiver in attesa di ricevere dati...");
 
-            socket.close(); // Chiude il socket quando tutte le richieste sono state inviate
+            while (true) {
+                // Prepara il pacchetto per ricevere i dati
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+
+                // Ricevi il pacchetto
+                socket.receive(packet);
+
+                // Estrai i dati dal pacchetto
+                String receivedData = new String(packet.getData(), 0, packet.getLength());
+
+                // Memorizza la richesta
+                Positioner.addPosition("positions.xml", receivedData);
+            }
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }

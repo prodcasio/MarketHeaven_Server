@@ -1,7 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <positions>
-    <position>
-        <asset></asset>
-        <openprice></openprice>
-        <time></time>
-    </position>
+<position>
+<asset>EURUSD</asset>
+<lots>50.0</lots>
+<operation>buy</operation>
+<date>2024-03-12 22:28:25</date>
+<price>1.122112</price>
+</position>
 </positions>
