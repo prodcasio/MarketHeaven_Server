@@ -18,19 +18,20 @@ import java.util.Date;
 
 public class Positioner {
 
+    // Aggiunge una posizione al file XML con i dati forniti in formato JSON
     public static void addPosition(String file, String jsonString) {
         JSONObject json = new JSONObject(jsonString);
 
         try {
-            // Convert JSON to XML
+            // Converti JSON in XML
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(new File(file));
 
-            // Create XML element for the position
+            // Crea l'elemento XML per la posizione
             Element positionElement = doc.createElement("position");
 
-            // Add asset, lots, and operation from JSON
+            // Aggiungi asset, lotti e operazione dal JSON
             Element assetElement = doc.createElement("asset");
             assetElement.appendChild(doc.createTextNode(json.getString("asset")));
             positionElement.appendChild(assetElement);
@@ -43,30 +44,30 @@ public class Positioner {
             operationElement.appendChild(doc.createTextNode(json.getString("operation")));
             positionElement.appendChild(operationElement);
 
-            // Get current date and time
+            // Ottieni data e ora correnti
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateTime = dateFormat.format(new Date());
 
-            // Add date element
+            // Aggiungi elemento data
             Element dateElement = doc.createElement("date");
             dateElement.appendChild(doc.createTextNode(dateTime));
             positionElement.appendChild(dateElement);
 
-            // Get opening price from assets.xml
+            // Ottieni il prezzo di apertura da assets.xml
             Document assetsDoc = builder.parse(new File("assets.xml"));
             Element assetsRoot = assetsDoc.getDocumentElement();
             String assetName = json.getString("asset");
             String openingPrice = getOpeningPrice(assetsRoot, assetName);
 
-            // Add opening price element
+            // Aggiungi elemento prezzo di apertura
             Element openingPriceElement = doc.createElement("price");
             openingPriceElement.appendChild(doc.createTextNode(openingPrice));
             positionElement.appendChild(openingPriceElement);
 
-            // Append the position element to the root element
+            // Aggiungi l'elemento della posizione all'elemento radice
             doc.getDocumentElement().appendChild(positionElement);
 
-            // Write the XML back to the file
+            // Scrivi l'XML nel file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -79,6 +80,7 @@ public class Positioner {
         }
     }
 
+    // Ottiene il prezzo di apertura per un determinato asset dal documento XML assets.xml
     private static String getOpeningPrice(Element assetsRoot, String assetName) {
         NodeList assetNodes = assetsRoot.getElementsByTagName("asset");
         for (int i = 0; i < assetNodes.getLength(); i++) {

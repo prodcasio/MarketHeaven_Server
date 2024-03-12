@@ -64,8 +64,10 @@ public class ListInformationSender extends Thread{
         }
     }
     private static Map<String, String> readInitialPrices(String filename) throws Exception {
+        // Crea una mappa per rendere più facile trovare le informazioni corrispondenti
         Map<String, String> prices = new HashMap<>();
 
+        // Prende il file dei prezzi iniziali
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(new File(filename));
@@ -86,6 +88,7 @@ public class ListInformationSender extends Thread{
         return prices;
     }
     private static void updatePrices(String filename, Map<String, String> initialPrices) throws Exception {
+        // Crea il file su cui scaricare le informazioni appena generate
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(new File(filename));
