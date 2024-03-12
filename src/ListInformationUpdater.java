@@ -83,6 +83,9 @@ public class ListInformationUpdater extends Thread {
                 // Modifica lo spread
                 int newSpread = random.nextInt(10); // da 0 a 9
 
+                // Aggiungi l'attributo "childof" con valore "forex"
+                element.setAttribute("childof", "forex");
+
                 // Aggiorna i valori nei nodi XML
                 element.getElementsByTagName("value").item(0).setTextContent(newValueFormatted);
                 element.getElementsByTagName("spread").item(0).setTextContent(Integer.toString(newSpread));
