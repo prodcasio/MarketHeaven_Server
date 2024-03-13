@@ -9,7 +9,7 @@ public class PositionReceiver extends Thread{
     @Override
     public void run() {
         try {
-            // Crea un DatagramSocket sulla porta 6677
+            // Crea un ServerSocket sulla porta 6677
             ServerSocket serverSocket = new ServerSocket(6677);
 
             System.out.println("PositionReceiver in attesa di ricevere dati...");

@@ -13,7 +13,7 @@ public class PositionsSender extends Thread {
     @Override
     public void run() {
         try {
-            // Crea un DatagramSocket sulla porta 7788
+            // Crea un ServerSocket sulla porta 7788
             ServerSocket serverSocket = new ServerSocket(7788);
 
             System.out.println("Server in attesa di richieste...");
