@@ -3,7 +3,8 @@ import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
+import org.xml.sax.ErrorHandler;
+import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
@@ -15,7 +16,17 @@ public class XMLtoJSONArray {
             File file = xmlFile;
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(file);
+
+            // Null handler per evitare che gli errori vengano mostrati
+            dBuilder.setErrorHandler(new NullErrorHandler());
+
+            if(!file.canRead()) return null;
+            Document doc;
+            try {
+                 doc = dBuilder.parse(file);
+            } catch(Exception e){
+                return null;
+            }
             doc.getDocumentElement().normalize();
 
             // Ottiene la lista degli elementi "asset"
@@ -50,5 +61,23 @@ public class XMLtoJSONArray {
             e.printStackTrace();
             return null;
         }
+    }
+}
+
+class NullErrorHandler implements ErrorHandler {
+
+    @Override
+    public void warning(org.xml.sax.SAXParseException exception) throws SAXException {
+
+    }
+
+    @Override
+    public void error(org.xml.sax.SAXParseException exception) throws SAXException {
+
+    }
+
+    @Override
+    public void fatalError(org.xml.sax.SAXParseException exception) throws SAXException {
+
     }
 }

@@ -1,4 +1,3 @@
-import org.json.JSONArray;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -11,63 +10,39 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.File;
-import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
+import java.io.*;
+import java.net.*;
 import java.util.HashMap;
-import java.util.Random;
 import java.util.Map;
-
-public class ListInformationSender extends Thread{
+public class ListInformationSender extends Thread {
     @Override
-    public void run(){
-        Random r = new Random();
-
+    public void run() {
         try {
-            // Leggi i valori da initialPrices.xml
             Map<String, String> initialPrices = readInitialPrices("initialprices.xml");
-
-            // Aggiorna i valori in prices.xml
             updatePrices("assets.xml", initialPrices);
         } catch (Exception e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
-
-        while(true) {
+        try {
             ListInformationUpdater liu = new ListInformationUpdater();
             liu.start();
-            try {
-                liu.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            ServerSocket serverSocket = new ServerSocket(5566);
+            // Creazione della connessione TCP
+            while (true){
+                Socket socket = serverSocket.accept();
+                ClientWorkerSender cws = new ClientWorkerSender(socket);
+                cws.start();
+                System.out.println("socket accettato");
             }
-            try {
-                JSONArray assets = XMLtoJSONArray.convert(new File("assets.xml")); // Carica gli asset da un file XML
-                DatagramSocket socket = new DatagramSocket(); // Crea un socket Datagram
-
-                for (int i = 0; i < assets.length(); i++) {
-                    byte[] sendData = assets.getJSONObject(i).toString().getBytes(); // Converte l'elemento dell'array in un array di byte
-                    DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, InetAddress.getByName("127.0.0.1"), 5566); // Crea il pacchetto da inviare
-                    socket.send(sendPacket); // Invia il pacchetto al server
-                }
-
-                socket.close(); // Chiude il socket quando tutte le richieste sono state inviate
-                Thread.sleep(100);
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
+
     private static Map<String, String> readInitialPrices(String filename) throws Exception {
-        // Crea una mappa per rendere più facile trovare le informazioni corrispondenti
         Map<String, String> prices = new HashMap<>();
 
-        // Prende il file dei prezzi iniziali
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(new File(filename));
@@ -87,8 +62,8 @@ public class ListInformationSender extends Thread{
 
         return prices;
     }
+
     private static void updatePrices(String filename, Map<String, String> initialPrices) throws Exception {
-        // Crea il file su cui scaricare le informazioni appena generate
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(new File(filename));
@@ -108,7 +83,6 @@ public class ListInformationSender extends Thread{
             }
         }
 
-        // Salva le modifiche nel file
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");

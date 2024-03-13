@@ -1,6 +1,7 @@
+import java.io.DataInputStream;
 import java.io.IOException;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class PositionReceiver extends Thread{
     PositionReceiver(){}
@@ -9,24 +10,22 @@ public class PositionReceiver extends Thread{
     public void run() {
         try {
             // Crea un DatagramSocket sulla porta 6677
-            DatagramSocket socket = new DatagramSocket(6677);
-
-            byte[] buffer = new byte[1024];
+            ServerSocket serverSocket = new ServerSocket(6677);
 
             System.out.println("PositionReceiver in attesa di ricevere dati...");
 
             while (true) {
                 // Prepara il pacchetto per ricevere i dati
-                DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-
-                // Ricevi il pacchetto
-                socket.receive(packet);
+                Socket socket = serverSocket.accept();
 
                 // Estrai i dati dal pacchetto
-                String receivedData = new String(packet.getData(), 0, packet.getLength());
+                DataInputStream dis = new DataInputStream(socket.getInputStream());
+                String receivedData = dis.readUTF();
 
                 // Memorizza la richesta
                 Positioner.addPosition("positions.xml", receivedData);
+
+                dis.close();
             }
 
         } catch (IOException e) {

@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39192792-d538-43c0-a43a-211814f332e1" name="Changes" comment="init" />
+    <list default="true" id="39192792-d538-43c0-a43a-211814f332e1" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/ClientWorkerSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/positions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/positions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ListInformationSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListInformationSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ListInformationUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListInformationUpdater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PositionReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PositionReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Positioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Positioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PositionsSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PositionsSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/XMLtoJSONArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XMLtoJSONArray.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710281813619</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="init">
+      <option name="closed" value="true" />
+      <created>1710342975206</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710342975206</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -3,10 +3,10 @@ import org.json.JSONObject;
 import org.json.XML;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.FileReader;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.text.DecimalFormat;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class PositionsSender extends Thread {
 
@@ -14,37 +14,27 @@ public class PositionsSender extends Thread {
     public void run() {
         try {
             // Crea un DatagramSocket sulla porta 7788
-            DatagramSocket socket = new DatagramSocket(7788);
+            ServerSocket serverSocket = new ServerSocket(7788);
 
             System.out.println("Server in attesa di richieste...");
 
             while (true) {
-                // Prepara il buffer per ricevere i dati
-                byte[] buffer = new byte[1024];
-                DatagramPacket receivePacket = new DatagramPacket(buffer, buffer.length);
+                Socket socket = serverSocket.accept();
 
-                // Ricevi la richiesta dal client
-                socket.receive(receivePacket);
+                // Carica i dati XML dal file positions.xml
+                String xmlData = loadXMLFromFile("positions.xml");
 
-                // Converti i dati ricevuti in una stringa
-                String receivedData = new String(receivePacket.getData(), 0, receivePacket.getLength());
+                // Carica i dati XML dal file assets.xml
+                String assetsXmlData = loadXMLFromFile("assets.xml");
 
-                // Se il client invia "a", invia i dati XML al client
-                if (receivedData.trim().equalsIgnoreCase("a")) {
-                    // Carica i dati XML dal file positions.xml
-                    String xmlData = loadXMLFromFile("positions.xml");
+                // Converte i dati XML in JSON
+                String jsonData = convertXMLtoJSON(xmlData, assetsXmlData);
 
-                    // Carica i dati XML dal file assets.xml
-                    String assetsXmlData = loadXMLFromFile("assets.xml");
-
-                    // Converte i dati XML in JSON
-                    String jsonData = convertXMLtoJSON(xmlData, assetsXmlData);
-
-                    // Invia i dati JSON al client
-                    DatagramPacket sendPacket = new DatagramPacket(jsonData.getBytes(), jsonData.getBytes().length,
-                            receivePacket.getAddress(), receivePacket.getPort());
-                    socket.send(sendPacket);
-                }
+                // Invia i dati JSON al client
+                DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+                dos.writeUTF(jsonData);
+                dos.flush();
+                dos.close();
             }
         } catch (Exception e) {
             e.printStackTrace();
