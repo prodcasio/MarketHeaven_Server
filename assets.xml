@@ -1,122 +1,122 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><assets>
     <asset childof="forex">
         <name>EURUSD</name>
-        <value>1.123565</value>
-        <spread>9</spread>
-        <change>0.01</change>
+        <value>1.129638</value>
+        <spread>1</spread>
+        <change>0.55</change>
     </asset>
     <asset childof="forex">
         <name>GBPUSD</name>
-        <value>1.343258</value>
+        <value>1.335313</value>
         <spread>8</spread>
-        <change>-0.18</change>
+        <change>-0.77</change>
     </asset>
     <asset childof="forex">
         <name>USDJPY</name>
-        <value>110.843203</value>
-        <spread>7</spread>
-        <change>-0.13</change>
+        <value>109.660168</value>
+        <spread>9</spread>
+        <change>-1.2</change>
     </asset>
     <asset childof="forex">
         <name>AUDUSD</name>
-        <value>0.677609</value>
-        <spread>4</spread>
-        <change>-0.19</change>
-    </asset>
-    <asset childof="forex">
-        <name>USDCAD</name>
-        <value>1.235667</value>
-        <spread>7</spread>
-        <change>0.09</change>
-    </asset>
-    <asset childof="forex">
-        <name>EURGBP</name>
-        <value>0.837891</value>
+        <value>0.678264</value>
         <spread>5</spread>
-        <change>0.27</change>
-    </asset>
-    <asset childof="forex">
-        <name>USDCHF</name>
-        <value>0.989931</value>
-        <spread>2</spread>
-        <change>0.23</change>
-    </asset>
-    <asset childof="forex">
-        <name>NZDUSD</name>
-        <value>0.735737</value>
-        <spread>3</spread>
-        <change>0.16</change>
-    </asset>
-    <asset childof="forex">
-        <name>EURJPY</name>
-        <value>123.802656</value>
-        <spread>8</spread>
-        <change>0.28</change>
-    </asset>
-    <asset childof="forex">
-        <name>GBPJPY</name>
-        <value>148.593582</value>
-        <spread>8</spread>
-        <change>-0.19</change>
-    </asset>
-    <asset childof="forex">
-        <name>AUDJPY</name>
-        <value>81.242493</value>
-        <spread>9</spread>
-        <change>0.01</change>
-    </asset>
-    <asset childof="forex">
-        <name>CADJPY</name>
-        <value>89.487101</value>
-        <spread>2</spread>
         <change>-0.09</change>
     </asset>
     <asset childof="forex">
-        <name>CHFJPY</name>
-        <value>112.728057</value>
-        <spread>8</spread>
-        <change>0.34</change>
-    </asset>
-    <asset childof="forex">
-        <name>EURAUD</name>
-        <value>1.655470</value>
-        <spread>3</spread>
+        <name>USDCAD</name>
+        <value>1.235375</value>
+        <spread>6</spread>
         <change>0.07</change>
     </asset>
     <asset childof="forex">
-        <name>GBPAUD</name>
-        <value>1.992430</value>
+        <name>EURGBP</name>
+        <value>0.827364</value>
+        <spread>7</spread>
+        <change>-0.99</change>
+    </asset>
+    <asset childof="forex">
+        <name>USDCHF</name>
+        <value>0.991988</value>
+        <spread>3</spread>
+        <change>0.44</change>
+    </asset>
+    <asset childof="forex">
+        <name>NZDUSD</name>
+        <value>0.733936</value>
+        <spread>1</spread>
+        <change>-0.09</change>
+    </asset>
+    <asset childof="forex">
+        <name>EURJPY</name>
+        <value>122.187668</value>
+        <spread>1</spread>
+        <change>-1.03</change>
+    </asset>
+    <asset childof="forex">
+        <name>GBPJPY</name>
+        <value>146.274403</value>
+        <spread>4</spread>
+        <change>-1.75</change>
+    </asset>
+    <asset childof="forex">
+        <name>AUDJPY</name>
+        <value>82.245500</value>
+        <spread>5</spread>
+        <change>1.24</change>
+    </asset>
+    <asset childof="forex">
+        <name>CADJPY</name>
+        <value>89.816105</value>
+        <spread>6</spread>
+        <change>0.28</change>
+    </asset>
+    <asset childof="forex">
+        <name>CHFJPY</name>
+        <value>112.679493</value>
+        <spread>6</spread>
+        <change>0.3</change>
+    </asset>
+    <asset childof="forex">
+        <name>EURAUD</name>
+        <value>1.644051</value>
         <spread>8</spread>
-        <change>0.24</change>
+        <change>-0.62</change>
+    </asset>
+    <asset childof="forex">
+        <name>GBPAUD</name>
+        <value>2.014196</value>
+        <spread>3</spread>
+        <change>1.34</change>
     </asset>
     <asset childof="forex">
         <name>AUDNZD</name>
-        <value>1.343928</value>
-        <spread>7</spread>
-        <change>-0.13</change>
+        <value>1.350940</value>
+        <spread>5</spread>
+        <change>0.39</change>
     </asset>
     <asset childof="forex">
         <name>GBPNZD</name>
-        <value>1.232722</value>
-        <spread>3</spread>
-        <change>-0.15</change>
+        <value>1.217235</value>
+        <spread>5</spread>
+        <change>-1.4</change>
     </asset>
     <asset childof="forex">
         <name>NZDCAD</name>
-        <value>0.843515</value>
-        <spread>9</spread>
-        <change>-0.25</change>
+        <value>0.852388</value>
+        <spread>0</spread>
+        <change>0.8</change>
     </asset>
     <asset childof="forex">
         <name>EURNZD</name>
-        <value>1.123232</value>
-        <spread>0</spread>
-        <change>-0.02</change>
+        <value>1.137324</value>
+        <spread>7</spread>
+        <change>1.23</change>
     </asset>
     <asset childof="forex">
         <name>NZDCHF</name>
-        <value>0.732302</value>
-        <spread>4</spread>
-        <change>-0.31</change>
+        <value>0.725515</value>
+        <spread>3</spread>
+        <change>-1.23</change>
     </asset>
 </assets>
