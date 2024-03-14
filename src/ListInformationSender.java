@@ -33,7 +33,7 @@ public class ListInformationSender extends Thread {
                 Socket socket = serverSocket.accept();
                 ClientWorkerSender cws = new ClientWorkerSender(socket);
                 cws.start();
-                System.out.println("socket accettato");
+                System.out.println("Socket accettato");
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

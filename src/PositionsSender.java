@@ -26,6 +26,7 @@ public class PositionsSender extends Thread {
 
                 // Carica i dati XML dal file assets.xml
                 String assetsXmlData = loadXMLFromFile("assets.xml");
+                System.out.println(assetsXmlData);
 
                 // Converte i dati XML in JSON
                 String jsonData = convertXMLtoJSON(xmlData, assetsXmlData);

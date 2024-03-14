@@ -1,17 +1,3 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <positions>
-<position>
-<asset>EURUSD</asset>
-<lots>50.0</lots>
-<operation>buy</operation>
-<date>2024-03-13 18:10:24</date>
-<price>1.116960</price>
-</position>
-<position>
-<asset>AUDUSD</asset>
-<lots>100.0</lots>
-<operation>sell</operation>
-<date>2024-03-13 18:10:42</date>
-<price>0.686949</price>
-</position>
 </positions>

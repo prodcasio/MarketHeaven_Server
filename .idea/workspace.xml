@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39192792-d538-43c0-a43a-211814f332e1" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/src/ClientWorkerSender.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/assets.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/positions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/positions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ListInformationSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListInformationSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ListInformationUpdater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListInformationUpdater.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PositionReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PositionReceiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Positioner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Positioner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PositionsSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PositionsSender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/XMLtoJSONArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/XMLtoJSONArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
